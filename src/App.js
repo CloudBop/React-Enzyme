@@ -28,6 +28,7 @@ function App() {
       }
       } data-test="increment-btn">increment</button>
       <button onClick={() => dec()} data-test="decrement-btn">decrement</button>
+
       {noBelowZero ? <span data-test="warning-msg">The counter cannot go below zero</span> : null}
     </div>
   )

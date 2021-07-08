@@ -4,8 +4,9 @@ import App from './App';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() })
 
-test('renders learn react link', () => {
-
+test('renders non empty component without crashing', () => {
+  //
   const wrapper = shallow(<App />)
+  expect(wrapper.exists()).toBe(true);
 
 });

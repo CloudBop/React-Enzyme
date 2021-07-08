@@ -11,10 +11,15 @@ test('renders without error', () => {
 
 });
 test('renders increment button', () => {
-
+  //
+  const wrapper = shallow(<App />);
+  const button = wrapper.find("[data-test='increment-btn']");
+  expect(button.length).toBe(1);
 })
 test('renders counter display', () => {
-
+  const wrapper = shallow(<App />);
+  const display = wrapper.find("[data-test='counter-display']");
+  expect(display.length).toBe(1);
 })
 test('inits counter at 0', () => {
 

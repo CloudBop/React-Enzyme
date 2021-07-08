@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
 
@@ -22,9 +22,13 @@ function App() {
       data-test="component-app"
     >
       <h1 data-test="counter-display">The counter is currently, <span data-test="count" >{counter}</span> </h1>
-      <button onClick={() => setCounter(prev => prev + 1)} data-test="increment-btn">increment</button>
+      <button onClick={() => {
+        setNoBelowZero(false)
+        setCounter(prev => prev + 1)
+      }
+      } data-test="increment-btn">increment</button>
       <button onClick={() => dec()} data-test="decrement-btn">decrement</button>
-
+      {noBelowZero ? <span data-test="warning-msg">The counter cannot go below zero</span> : null}
     </div>
   )
 }

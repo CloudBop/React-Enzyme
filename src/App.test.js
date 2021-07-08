@@ -37,3 +37,38 @@ test('clicking btn increments counter display', () => {
   const span = findByTestAttribute(wrapper, 'count').text();
   expect(span).toBe("1");
 })
+
+test('clicking btn decrements counter display', () => {
+  const wrapper = setup()
+  const button = findByTestAttribute(wrapper, 'decrement-btn');
+  const incbutton = findByTestAttribute(wrapper, 'increment-btn');
+
+  //+1
+  incbutton.simulate('click')
+  const span = findByTestAttribute(wrapper, 'count').text();
+  expect(span).toBe("1");
+
+  button.simulate('click')
+  const span2 = findByTestAttribute(wrapper, 'count').text();
+  expect(span2).toBe("0");
+})
+
+
+test('clicking btn decrements shouldnt go <0 ', () => {
+  const wrapper = setup()
+  const button = findByTestAttribute(wrapper, 'decrement-btn');
+  const incbutton = findByTestAttribute(wrapper, 'increment-btn');
+
+  //+1
+  incbutton.simulate('click')
+  const span = findByTestAttribute(wrapper, 'count').text();
+  expect(span).toBe("1");
+
+  button.simulate('click')
+  const span2 = findByTestAttribute(wrapper, 'count').text();
+  expect(span2).toBe("0");
+
+  button.simulate('click')
+  const span3 = findByTestAttribute(wrapper, 'count').text();
+  expect(span3).toBe("0");
+})

@@ -72,3 +72,34 @@ test('clicking btn decrements shouldnt go <0 ', () => {
   const span3 = findByTestAttribute(wrapper, 'count').text();
   expect(span3).toBe("0");
 })
+
+test('show a warning if try to go below 0', () => {
+  const wrapper = setup()
+  const button = findByTestAttribute(wrapper, 'decrement-btn');
+
+  button.simulate('click')
+  const span2 = findByTestAttribute(wrapper, 'count').text();
+  expect(span2).toBe("0");
+
+  const warning = findByTestAttribute(wrapper, 'warning-msg');
+
+  expect(warning.length).toBe(1)
+})
+
+test('remove warning on increment', () => {
+  const wrapper = setup()
+  const button = findByTestAttribute(wrapper, 'decrement-btn');
+
+  button.simulate('click')
+  const span2 = findByTestAttribute(wrapper, 'count').text();
+  expect(span2).toBe("0");
+
+  const warning = findByTestAttribute(wrapper, 'warning-msg');
+
+  expect(warning.length).toBe(1)
+
+  const incbutton = findByTestAttribute(wrapper, 'increment-btn');
+  incbutton.simulate('click')
+  const warningGone = findByTestAttribute(wrapper, 'warning-msg');
+  expect(warningGone.length).toBe(0)
+})

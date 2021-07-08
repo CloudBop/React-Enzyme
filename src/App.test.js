@@ -27,7 +27,7 @@ test('renders counter display', () => {
 test('inits counter at 0', () => {
   const wrapper = setup()
   const span = findByTestAttribute(wrapper, 'count').text();
-  expect(span).toBe(0);
+  expect(span).toBe("0");
 })
 test('clicking btn increments counter display', () => {
 

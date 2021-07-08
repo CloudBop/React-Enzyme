@@ -30,5 +30,10 @@ test('inits counter at 0', () => {
   expect(span).toBe("0");
 })
 test('clicking btn increments counter display', () => {
+  const wrapper = setup()
+  const button = findByTestAttribute(wrapper, 'increment-btn');
 
+  button.simulate('click')
+  const span = findByTestAttribute(wrapper, 'count').text();
+  expect(span).toBe("1");
 })

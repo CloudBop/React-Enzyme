@@ -3,10 +3,19 @@ import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17'
 import App from './App';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() })
-
-test('renders non empty component without crashing', () => {
+test('renders without error', () => {
   //
-  const wrapper = shallow(<App />)
-  expect(wrapper.exists()).toBe(true);
 
 });
+test('renders increment button', () => {
+
+})
+test('renders counter display', () => {
+
+})
+test('inits counter at 0', () => {
+
+})
+test('clicking btn increments counter display', () => {
+
+})

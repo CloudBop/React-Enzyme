@@ -7,7 +7,7 @@ function App() {
       className="App"
       data-test="component-app"
     >
-      <h1 data-test="counter-display">The counter is currently, </h1>
+      <h1 data-test="counter-display">The counter is currently, <span data-test="count" >0</span> </h1>
       <button data-test="increment-btn">increment</button>
 
     </div>
